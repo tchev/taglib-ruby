@@ -7,7 +7,7 @@ require 'taglib/version'
 Gem::Specification.new do |s|
   s.name        = "taglib-ruby"
   s.version     = TagLib::Version::STRING
-  s.authors     = ["Robin Stocker", "Jacob Vosmaer"]
+  s.authors     = ["Robin Stocker", "Jacob Vosmaer", "Thomas Chevereau"]
   s.email       = ["robin@nibor.org"]
   s.homepage    = "http://robinst.github.io/taglib-ruby/"
   s.licenses    = ["MIT"]
@@ -24,7 +24,7 @@ DESC
   s.requirements = ["taglib (libtag1-dev in Debian/Ubuntu, taglib-devel in Fedora/RHEL)"]
 
   s.add_development_dependency 'bundler', '~> 1.2'
-  s.add_development_dependency 'rake-compiler', '~> 0.8'
+  s.add_development_dependency 'rake-compiler', '~> 0.9'
   s.add_development_dependency 'shoulda-context', '~> 1.0'
   s.add_development_dependency 'yard', '~> 0.7'
   s.add_development_dependency 'kramdown', '~> 1.0'
@@ -147,6 +147,7 @@ DESC
     "test/fileref_open_test.rb",
     "test/fileref_properties_test.rb",
     "test/fileref_write_test.rb",
+    "test/file_test.rb",
     "test/flac_file_test.rb",
     "test/flac_file_write_test.rb",
     "test/id3v1_tag_test.rb",
@@ -156,6 +157,7 @@ DESC
     "test/id3v2_relative_volume_test.rb",
     "test/id3v2_tag_test.rb",
     "test/id3v2_unicode_test.rb",
+    "test/id3v2_unknown_frames_test.rb",
     "test/id3v2_write_test.rb",
     "test/mp4_file_test.rb",
     "test/mp4_file_write_test.rb",

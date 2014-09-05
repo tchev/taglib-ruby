@@ -18,6 +18,7 @@ taglib-ruby currently supports the following:
 
 Contributions for more coverage of the library are very welcome.
 
+[![Gem version][gem-img]][gem-link]
 [![Build status][travis-img]][travis-link]
 
 [![flattr this project][flattr-img]][flattr-link]
@@ -37,6 +38,14 @@ Then do:
 
     gem install taglib-ruby
 
+### OS X C++ compiler override
+
+Not all versions of TagLib get along with `clang++`, the default C++ compiler
+on OS X. To compile taglib-ruby's C++ extensions with a different compiler
+during installation, set the `TAGLIB_RUBY_CXX` environement variable.
+
+    TAGLIB_RUBY_CXX=g++-4.2 gem install taglib-ruby
+
 Usage
 -----
 
@@ -55,15 +64,35 @@ Contributing
 
 ### Building
 
-    # Install dependencies
+Install dependencies (uses bundler, install it via `gem install bundler`
+if you don't have it):
+
     bundle install
-    # Regenerate SWIG wrappers (only necessary if you made changes)
+
+Regenerate SWIG wrappers if you made changes in `.i` files (use at least
+version 2.0.5 of SWIG):
+
     rake swig
-    # Compile extension
+
+Force regeneration of all SWIG wrappers:
+
+    touch ext/*/*.i
+    rake swig
+
+Compile extensions:
+
     rake clean compile
-    # Run tests
+
+Run tests:
+
     rake test
-    # Build and install gem into system gems
+
+Run irb with library:
+
+    irb -Ilib -rtaglib
+
+Build and install gem into system gems:
+
     rake install
 
 ### Workflow
@@ -85,7 +114,7 @@ Contributing
 License
 -------
 
-Copyright (c) 2010-2013 Robin Stocker and others, see Git history.
+Copyright (c) 2010-2014 Robin Stocker and others, see Git history.
 
 taglib-ruby is distributed under the MIT License,
 see LICENSE.txt for details.
@@ -95,7 +124,9 @@ a DLL. TagLib is distributed under the GNU Lesser General Public License
 version 2.1 (LGPL) and Mozilla Public License (MPL).
 
 [taglib]: http://taglib.github.io/
-[travis-img]: https://secure.travis-ci.org/robinst/taglib-ruby.png
-[travis-link]: http://travis-ci.org/robinst/taglib-ruby
-[flattr-img]: http://api.flattr.com/button/flattr-badge-large.png
+[gem-img]: https://badge.fury.io/rb/taglib-ruby.svg
+[gem-link]: https://rubygems.org/gems/taglib-ruby
+[travis-img]: https://api.travis-ci.org/robinst/taglib-ruby.png
+[travis-link]: https://travis-ci.org/robinst/taglib-ruby
+[flattr-img]: https://api.flattr.com/button/flattr-badge-large.png
 [flattr-link]: https://flattr.com/submit/auto?user_id=robinst&url=https://github.com/robinst/taglib-ruby&title=taglib-ruby&tags=github&category=software
